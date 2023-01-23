@@ -25,8 +25,9 @@ class XList
 {
 public:
     XList() {
-        lastNode=nullptr;
-        firstNode=nullptr;
+        lastNode = nullptr;
+        firstNode = nullptr;
+        m_size = 0;
     }
     void push_back(T1 value) {
         Node<T1>* item = new Node<T1>(value);
@@ -42,6 +43,7 @@ public:
             item->m_prev = lastItem;
             item->m_next = temp;
         }
+        m_size++;
     }
     void push_front(T1 node) {
         Node<T1> *item = new Node<T1>(node);
@@ -57,6 +59,7 @@ public:
             firstNode->m_prev = nullptr;
             temp->m_prev = firstNode;
         }
+        m_size++;
     }
     
     Node<T1>* getLastItem() {
@@ -72,9 +75,18 @@ public:
         }
     }
 
+    int size() {
+        return m_size;
+    }
+    // length function is same with size()
+    int length() {
+        return size();
+    }
+
 private:
     Node<T1>* firstNode;
     Node<T1>* lastNode;
+    int m_size;
 };
 
 #endif  // XLIST_HPP

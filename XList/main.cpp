@@ -21,9 +21,12 @@ int main()
 {
     XList<int> xlist;
     xlist.push_back(1);
+    xlist.push_back(2);
+    xlist.push_front(0);
+    xlist.print();
     std::list<int> stl_list;
     stl_list.push_back(1);
-
+    
 
     return 0;
 }
